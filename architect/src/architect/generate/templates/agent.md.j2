@@ -1,0 +1,69 @@
+# agent.md — << project_name >> Master Orchestration
+
+> Version: 1.0.0 | Last Updated: << date >>
+
+---
+
+## 1. Boot Sequence
+
+```
+(1) agent.md        <- 구조, 역할, 규칙
+(2) checklist.md    <- 현재 진행 상태
+(3) persona.md      <- 자신의 역할 로드
+(4) plan.md         <- 구현 대상
+(5) spec.md         <- 기술 사양
+(6) shared-memory.md <- 타 Agent 메시지
+(7) interfaces.md   <- 모듈 계약
+(8) conventions.md  <- 코딩 규칙
+(9) knowledge.md    <- 축적된 해결 지식
+(10) errors.md      <- 에러 이력
+[작업 시작]
+[완료 후] checklist + shared-memory + knowledge 업데이트
+```
+
+---
+
+## 2. System Overview
+
+<< system_overview >>
+
+---
+
+## 3. Project Directory Structure
+
+```
+<< directory_tree >>
+```
+
+---
+
+## 4. Agent-Directory Ownership
+
+| Agent | Role | Directories | Phase |
+|-------|------|-------------|-------|
+<% for agent in agents -%>
+| << agent.agent_id >> | << agent.persona_name >> | << agent.directories >> | P<< agent.phase >> |
+<% endfor %>
+---
+
+## 5. Coordination Rules
+
+```
+<% for rule in rules -%>
+[RULE-<< loop.index >>] << rule >>
+<% endfor -%>
+```
+
+## 6. Parallel Matrix
+
+```
+<< parallel_matrix >>
+```
+
+## 7. Critical Path
+
+```
+<% for phase in phases -%>
+Phase << phase.number >> (<< phase.mode >>): << phase.description >>
+<% endfor -%>
+```

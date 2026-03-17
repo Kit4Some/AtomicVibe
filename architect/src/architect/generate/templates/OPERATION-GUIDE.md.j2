@@ -1,0 +1,32 @@
+# OPERATION-GUIDE.md — Agent Dispatch Prompts
+
+---
+
+<% for phase in phases %>
+## Phase << phase.number >>: << phase.title >> (<< phase.agent_labels >>)
+
+<% for prompt in phase.agent_prompts %>
+### [>>] << prompt.agent_id >>: << prompt.persona_name >>
+
+```
+<< prompt.prompt_text >>
+```
+
+<% endfor %>
+---
+
+<% endfor %>
+## Session Resume Prompt
+
+```
+너는 << project_name >> 프로젝트의 Agent-[X] 역할이야. 이전 세션을 이어서 해야 해.
+
+읽을 파일:
+1. .vibe/checklist.md — [WIP]/[TODO] 중 네 담당 확인
+2. .vibe/shared-memory.md — 너에게 온 메시지 확인
+3. .vibe/persona.md — 페르소나 재로드
+4. .vibe/knowledge.md — 축적된 지식 확인
+5. .vibe/errors.md — 이전 에러 확인
+
+이전 작업을 파악하고 이어서 진행해줘.
+```

@@ -1,0 +1,41 @@
+# errors.md — Error History & Pattern Tracking
+
+> 자동 갱신 파일. Validator 실패 시 자동 기록, Diagnostician이 패턴 분석에 사용.
+
+---
+
+## Error Log Format
+
+```
+### E{번호} | Phase {N} Sprint {M} | {timestamp}
+**Agent**: Agent-X
+**Task**: #{checklist_number}
+**Type**: {syntax | import | type | logic | interface_mismatch | test_failure}
+**Severity**: {blocking | degraded | cosmetic}
+**Error**: (에러 메시지 원문)
+**File**: {파일 경로}:{라인}
+**Fix Applied**: {적용된 수정}
+**Fix Result**: {success | failed}
+**Root Cause**: {Diagnostician 분석 결과}
+```
+
+---
+
+## Error Log
+
+(프로젝트 진행 시 자동 추가됨)
+
+---
+
+## Detected Patterns
+
+(Diagnostician이 반복 패턴 발견 시 자동 추가)
+
+```
+### Pattern: {이름}
+**Occurrences**: {횟수}
+**Error Type**: ...
+**Common Cause**: ...
+**Best Resolution**: ...
+**Success Rate**: {percent}
+```

@@ -1,0 +1,19 @@
+# plan.md — << project_name >> Implementation Plan
+
+> Version: 1.0.0
+
+---
+
+<% for phase in phases %>
+## Phase << phase.number >>: << phase.title >> (<< phase.agent_labels >>)
+
+<< phase.description >>
+
+| # | Task | Agent | Dependencies | Priority |
+|---|------|-------|-------------|----------|
+<% for task in phase.tasks -%>
+| << task.number >> | << task.description >> | << task.agent >> | << task.dependencies >> | << task.priority >> |
+<% endfor %>
+---
+
+<% endfor %>

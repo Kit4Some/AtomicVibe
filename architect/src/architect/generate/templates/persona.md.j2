@@ -1,0 +1,35 @@
+# persona.md — Agent Persona Definitions
+
+> Version: 1.0.0
+
+---
+
+<% for agent in agents %>
+## << agent.agent_id >>: << agent.persona_name >>
+
+### [INSTRUCTIONS]
+<< agent.instructions >>
+
+금지:
+<% for rule in agent.forbidden -%>
+- [X] << rule >>
+<% endfor %>
+담당: << agent.scope >>
+
+### [KNOWLEDGE]
+<% for item in agent.knowledge -%>
+- << item >>
+<% endfor %>
+### [TOOLS]
+<% for tool in agent.tools -%>
+- << tool >>
+<% endfor %>
+---
+
+<% endfor %>
+## Persona Rules
+
+1. 각 Agent는 자기 담당 범위 내에서만 작업한다.
+2. Knowledge URL은 설계자(Human)만 수정한다.
+3. 범위 밖 작업 필요 시 shared-memory.md에 REQUEST를 남긴다.
+4. Agent가 새로운 참고 자료를 발견하면 shared-memory.md에 INFO로 제안한다.

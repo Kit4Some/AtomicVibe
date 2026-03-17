@@ -1,0 +1,46 @@
+# shared-memory.md — Inter-Agent Communication
+
+---
+
+## Rules
+1. 새 메시지는 최상단에 추가
+2. Format: `### [날짜] Agent-X -> Target | Type: INFO/EXPORT/REQUEST/ALERT`
+3. 처리 완료 시 RESOLVED로 변경 (삭제 금지)
+4. EXPORT는 다른 Agent가 재사용할 코드/설정 공유용
+
+---
+
+## Messages
+
+### [<< date >>] SYSTEM -> ALL
+**Type**: INFO
+**Subject**: 프로젝트 초기화
+**Content**:
+<< project_name >> 빌드 시작.
+<< init_message >>
+---
+
+---
+
+## Export Registry
+
+```
+<% for entry in export_registry -%>
+[<< entry.agent >>] << entry.path >> -> << entry.exports >>
+<% endfor -%>
+```
+
+## Dependency Tracking
+
+| Waiting | Needs | From | Checklist | Status |
+|---------|-------|------|-----------|--------|
+<% for dep in dependency_tracking -%>
+| << dep.waiting >> | << dep.needs >> | << dep.source >> | << dep.checklist >> | [TODO] |
+<% endfor %>
+## Decision Log
+
+| Date | Decision | Rationale | Scope |
+|------|----------|-----------|-------|
+<% for decision in decision_log -%>
+| << date >> | << decision.topic >> | << decision.rationale >> | << decision.scope >> |
+<% endfor %>

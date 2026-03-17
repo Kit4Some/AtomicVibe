@@ -1,0 +1,29 @@
+# checklist.md — Progress Tracker
+
+> Last Updated: << date >> | Status: Phase 1 Pending
+
+```
+[DONE] = 완료  |  [WIP] = 진행중  |  [TODO] = 미시작  |  [X] = 차단됨
+```
+
+---
+
+<% for phase in phases %>
+## Phase << phase.number >>: << phase.title >>
+
+| # | Task | Status | Agent | Date | Notes |
+|---|------|--------|-------|------|-------|
+<% for task in phase.tasks -%>
+| << task.number >> | << task.description >> | [TODO] | << task.agent >> | - | << task.notes >> |
+<% endfor %>
+---
+
+<% endfor %>
+## Summary
+
+| Phase | Total | [DONE] | [WIP] | [TODO] | Progress |
+|-------|-------|--------|-------|--------|----------|
+<% for phase in phases -%>
+| P<< phase.number >> | << phase.tasks | length >> | 0 | 0 | << phase.tasks | length >> | 0% |
+<% endfor -%>
+| Total | << total_tasks >> | 0 | 0 | << total_tasks >> | 0% |
